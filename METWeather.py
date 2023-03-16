@@ -35,7 +35,7 @@ def METsearch(lat : float, lng: float, key : str):
     # Url is designed to output JSON but can also output XML (http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/xml/)
     url = 'http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/sitelist?key=<APIkey>'
     params = {
-        'APIkey' : api_key
+        'APIkey' : key
     }
     res = requests.get(url, params=params)
     data = res.json()
