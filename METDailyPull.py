@@ -24,8 +24,35 @@ lng = -2.869
 
 MM = str(METsearch(lat, lng, MET))
 
-#Use this to manually check weather station
-# print(df.loc[df['id'] == LO])
+lat = 50.8575965696
+lng = -0.5509811294
+
+AR = str(METsearch(lat, lng, MET))
+
+lat = 52.5288
+lng = 0.2739
+
+WL = str(METsearch(lat, lng, MET))
+
+lat = 51.665
+lng = -4.125
+
+LL = str(METsearch(lat, lng, MET))
+
+lat = 54.984 
+lng = -3.5
+
+CA = str(METsearch(lat, lng, MET))
+
+lat = 54.52935
+lng = -5.6981
+
+CE = str(METsearch(lat, lng, MET))
+
+lat = 54.8995958
+lng = -1.4864881
+
+WA = str(METsearch(lat, lng, MET))
 
 head = 'http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/'
 tail = '?res=3hourly&key=<APIkey>'
@@ -43,5 +70,5 @@ key = MET
 
 #If you want to add to a pre-existing df
 df = pd.read_csv(desktop + "/MET.csv")
-site = [SL, LO, MM]
+site = [SL, LO, MM, AR, WL, LL, CA, CE, WA]
 METdata(head, site, tail, key, all=True, add=df)

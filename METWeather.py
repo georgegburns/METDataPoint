@@ -53,7 +53,10 @@ def METsearch(lat : float, lng: float, key : str):
     distances = output.apply(
         lambda row: dist(lat, lng, row['latitude'], row['longitude']), 
         axis=1)
-    return output.loc[distances.idxmin(), 'id']
+    station = output.loc[distances.idxmin(), 'id']
+    #To manually check weather station
+    print(f'The Nearest MET Weather Station for {lat} {lng} is {station}')
+    return station
 
 # Function to call the API, clean the data and store in a output
 def METdata(head : str, site : list, tail: str, key : str, all=False, add=pd.DataFrame()):
