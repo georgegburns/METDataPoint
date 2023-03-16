@@ -135,12 +135,15 @@ def METdata(head : str, site : list, tail: str, key : str, all=False, add=pd.Dat
         print(f'Complete {centre}') 
     
     output = output.apply(lambda x: x.astype(str).str.lower()).drop_duplicates(subset=['date', 'time','centre'], keep='last')
-    
-    if all:
-        output.to_csv(desktop + f"/MET - {today}.csv", index=False)
-        
-    else: 
-        output.to_csv(desktop + f"/MET - {centre} - {today}.csv", index=False)
+    if add.empty:
+        if all:
+            output.to_csv(desktop + f"/MET - {today}.csv", index=False)
+    else:
+        if all:
+            output.to_csv(desktop + f"/MET.csv", index=False)
+            
+        else: 
+            output.to_csv(desktop + f"/MET - {centre} - {today}.csv", index=False)
     print('Data retrieved - file ouput to desktop')
     print(output.head(5))
         
