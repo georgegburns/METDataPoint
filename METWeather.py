@@ -148,6 +148,6 @@ def METdata(head : str, site : list, tail: str, key : str, all=False, add=pd.Dat
         else: 
             output.to_csv(desktop + f"/MET - {centre} - {today}.csv", index=False)
     print('Data retrieved - file ouput to desktop')
-    print(output.head(5))
+    print(output.tail(5))
         
 
